@@ -51,3 +51,11 @@
     - Never create state variables inside if else statements or for loops as it can create inconsistancies in the code
     - Try to keep them inside functional component and on top
 
+# Routing
+    - useRouteError hookfor getting error status, error message
+
+
+# Types of routing in web application
+    1. Server side routing (old way : for every route page is refreshed)
+    2. Client side routing (Single page applications - SPA)
+

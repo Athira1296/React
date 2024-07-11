@@ -59,3 +59,13 @@
 .cuisines {
     word-wrap: break-word;
 }
+
+.user-card {
+    border: 1px solid black;
+    padding: 0.5rem;
+}
+
+.count-container {
+    display: flex;
+    gap: 0.5rem;
+}
