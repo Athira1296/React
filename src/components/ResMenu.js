@@ -20,7 +20,7 @@ const ResMenu = () => {
     const menuList = resData[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
 
     return(<div>
-        <h1>Menu - {resName}</h1>
+        <h1 className="font-bold">Menu - {resName}</h1>
         <ul>{
             menuList.map(item => <li key={item?.card?.info?.id}>{item?.card?.info?.name} - {'Rs.' + (item?.card?.info?.defaultPrice/100 || item?.card?.info?.price/100)}</li>)
         }</ul>

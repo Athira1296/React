@@ -12,12 +12,12 @@ const Header = () => {
     },[btnLabel]);
 
     return (
-    <div className="header">
+    <div className="flex justify-between shadow-lg mb-2">
         <div className="logo-container">
-            <img className="logo" src={LOGO_URL}></img>
+            <img className="w-20" src={LOGO_URL}></img>
         </div>
-        <div className="nav-items">
-            <ul>
+        <div className="flex items-center">
+            <ul className="flex p-4 m-4 gap-5">
                 <li>{onlineStatus ? '🟢' : '🔴'}</li>
                 <li><Link to={"/"}>Home</Link></li>
                 <li><Link to={"/about"}>About us</Link></li>

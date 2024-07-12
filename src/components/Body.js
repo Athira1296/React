@@ -39,17 +39,17 @@ const Body = () => {
     ) : 
     (
         <div className="body">
-            <div className="filter">
-                <input value={searchVal} onChange={(e) => setSearchVal(e.target.value)}></input>
+            <div className="filter flex gap-5 m-3">
+                <input className="border border-solid border-black m-1 rounded-sm p-1" value={searchVal} onChange={(e) => setSearchVal(e.target.value)}></input>
 
-                <button onClick={() => {
+                <button className="px-7 py-2 bg-green-400 rounded-lg" onClick={() => {
                     const filteredList = resList.filter(res => res?.info?.name.toLowerCase().includes(searchVal.toLowerCase()));
                     setFilteredList(filteredList);
                 }}>
                     Search
                 </button>
 
-                <button onClick={() => {
+                <button className="px-7 py-2 bg-yellow-400 rounded-lg" onClick={() => {
                     const filteredList =  resList.filter(res => res?.info?.avgRating > 4);
                     setFilteredList(filteredList);
                 }}>
@@ -57,7 +57,7 @@ const Body = () => {
                 </button>
 
             </div>
-            <div className="res-cards">
+            <div className="res-cards flex flex-wrap">
                 { filteredList.map(res => <Link key={res.info.id} to={"restaurent/" + res.info.id}>
                     <ResCard resObj={res?.info} />
                 </Link> )}
