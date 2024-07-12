@@ -2,11 +2,13 @@ import { useEffect, useState } from "react";
 import ResCard from "./ResCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
     const [resList, setResList] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [searchVal, setSearchVal] = useState('');
+    const onlineStatus = useOnlineStatus();
 
     useEffect(
         () => {
@@ -24,6 +26,10 @@ const Body = () => {
         setResList(restaurants);
         setFilteredList(restaurants);
     }
+
+    if(!onlineStatus) return(
+        <div><h2>No network connection.</h2></div>
+    );
 
     return !resList.length ? 
     (

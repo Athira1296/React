@@ -7,8 +7,12 @@ class About extends Component {
         console.log("Parent constructor called");
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         console.log("Parent componentDidMount called");
+
+        const res = await fetch('https://jsonplaceholder.typicode.com/posts');
+        const data = await res.json();
+        //console.log("data", data);
     }
     
     render () {
