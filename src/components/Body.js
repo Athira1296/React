@@ -1,14 +1,17 @@
-import { useEffect, useState } from "react";
-import ResCard from "./ResCard";
+import { useContext, useEffect, useState } from "react";
+import ResCard, {withPromotedLabel} from "./ResCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/context/userContext";
 
 const Body = () => {
     const [resList, setResList] = useState([]);
     const [filteredList, setFilteredList] = useState([]);
     const [searchVal, setSearchVal] = useState('');
     const onlineStatus = useOnlineStatus();
+    const ResCardPromoted = withPromotedLabel(ResCard);
+    const {loggedInUser, setUserName} = useContext(UserContext);
 
     useEffect(
         () => {
@@ -56,10 +59,14 @@ const Body = () => {
                     Get top restaurents
                 </button>
 
+                <input className="border border-solid border-black m-1 rounded-sm p-1" 
+                    value={loggedInUser}
+                    onChange={(e) => {setUserName(e.target.value)}}></input>
+
             </div>
             <div className="res-cards flex flex-wrap">
                 { filteredList.map(res => <Link key={res.info.id} to={"restaurent/" + res.info.id}>
-                    <ResCard resObj={res?.info} />
+                     { res?.info.avgRating > 4.3 ? <ResCardPromoted resObj={res?.info} /> :  <ResCard resObj={res?.info} />}
                 </Link> )}
             </div>
         </div>

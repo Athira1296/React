@@ -59,3 +59,22 @@
     1. Server side routing (old way : for every route page is refreshed)
     2. Client side routing (Single page applications - SPA)
 
+# Higher oredr component
+    - A higher order component is a component that takes a component as input
+    and modifies it and returns a component
+
+    - They are pure functions: does not modify its args directly
+
+# Lifting the state
+
+# Props Drilling
+- Drill down a value from parent in inner children (The problem of passing props)
+- React gives us context api to deal with props drilling
+
+# Context API
+- Global data store from where every component can access data
+- Consume data from context
+    Functional component = useContext()
+    Class based component = Context Provider 
+        <UserContext.Provider>{(data) => { console.log(data) }}</UserContext.Provider>
+

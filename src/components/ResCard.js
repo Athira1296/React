@@ -12,4 +12,20 @@ const ResCard = (props) => {
     );
 };
 
+// Higher order components
+// input --> ResCard
+// output --> ResCard with Promoted label --> ResCardPromoted
+
+export const withPromotedLabel = (ResCard) => {
+
+    return((props) => {
+        return(
+            <div>
+                <label className="absolute bg-black text-white p-1 rounded-md">Promoted</label>
+                <ResCard {...props}/>
+            </div>
+        )
+    });
+};
+
 export default ResCard;
